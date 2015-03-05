@@ -6,7 +6,7 @@
  */ 
 
 #include <avr/io.h>
-#include "drivers/standard_dio.h"
+#include "standard_dio.h"
 
 void set_DDRs() {
 	/* data direction registers (input or output)
@@ -51,4 +51,10 @@ int center_disp_btn_pressed() {
 
 int right_disp_btn_pressed() {
 	return is_high(PIND, PIND0);
+}
+
+int set_LVE_LED(int state) {
+	if (state) {
+		sbi()
+	}
 }

@@ -1,0 +1,111 @@
+
+CMR-Dashboard.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000000b0  00000000  00000000  00000054  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .comment      00000030  00000000  00000000  00000104  2**0
+                  CONTENTS, READONLY
+  2 .debug_aranges 00000080  00000000  00000000  00000134  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  3 .debug_info   000001df  00000000  00000000  000001b4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_abbrev 000000ce  00000000  00000000  00000393  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_line   000001a2  00000000  00000000  00000461  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_frame  000000c8  00000000  00000000  00000604  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_str    000001eb  00000000  00000000  000006cc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_ranges 00000060  00000000  00000000  000008b7  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__ctors_end>
+   4:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
+   8:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
+   c:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
+  10:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
+  14:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
+  18:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
+  1c:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
+  20:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
+  24:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
+  28:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
+  2c:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
+  30:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
+  34:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
+  38:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
+  3c:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
+  40:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
+  44:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
+  48:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
+  4c:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
+  50:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
+  54:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
+  58:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
+  5c:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
+  60:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
+  64:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
+  68:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
+  6c:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
+  70:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
+  74:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
+  78:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
+
+0000007c <__ctors_end>:
+  7c:	11 24       	eor	r1, r1
+  7e:	1f be       	out	0x3f, r1	; 63
+  80:	cf ef       	ldi	r28, 0xFF	; 255
+  82:	d0 e1       	ldi	r29, 0x10	; 16
+  84:	de bf       	out	0x3e, r29	; 62
+  86:	cd bf       	out	0x3d, r28	; 61
+  88:	0e 94 4a 00 	call	0x94	; 0x94 <main>
+  8c:	0c 94 56 00 	jmp	0xac	; 0xac <_exit>
+
+00000090 <__bad_interrupt>:
+  90:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000094 <main>:
+#include "drivers/dashboard_dio.h"
+#include "drivers/standard_dio.h"
+
+int main(void)
+{
+	set_DDRs();
+  94:	0e 94 4d 00 	call	0x9a	; 0x9a <set_DDRs>
+  98:	ff cf       	rjmp	.-2      	; 0x98 <main+0x4>
+
+0000009a <set_DDRs>:
+#include "drivers/standard_dio.h"
+
+void set_DDRs() {
+	/* data direction registers (input or output)
+	 * these are specific to the dashboard PCB     */
+	DDRB = 0b10111010;
+  9a:	8a eb       	ldi	r24, 0xBA	; 186
+  9c:	84 b9       	out	0x04, r24	; 4
+	DDRC = 0b01001010;
+  9e:	8a e4       	ldi	r24, 0x4A	; 74
+  a0:	87 b9       	out	0x07, r24	; 7
+	DDRD = 0b00000000;
+  a2:	1a b8       	out	0x0a, r1	; 10
+	
+	/* initialize all ports to zero */	
+	PORTB = 0x00;
+  a4:	15 b8       	out	0x05, r1	; 5
+	PORTC = 0x00;
+  a6:	18 b8       	out	0x08, r1	; 8
+	PORTD = 0x00;
+  a8:	1b b8       	out	0x0b, r1	; 11
+  aa:	08 95       	ret
+
+000000ac <_exit>:
+  ac:	f8 94       	cli
+
+000000ae <__stop_program>:
+  ae:	ff cf       	rjmp	.-2      	; 0xae <__stop_program>
