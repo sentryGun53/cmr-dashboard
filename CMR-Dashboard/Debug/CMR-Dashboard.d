@@ -13,7 +13,7 @@ CMR-Dashboard.d CMR-Dashboard.o: .././CMR-Dashboard.c \
  c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\util\delay.h \
  c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
  c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\math.h \
- .././drivers/dashboard_dio.h .././drivers/standard_dio.h
+ .././dashboard_dio.h .././standard_dio.h .././spi.h .././display.h
 
 c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -43,6 +43,10 @@ c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-g
 
 c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\math.h:
 
-.././drivers/dashboard_dio.h:
+.././dashboard_dio.h:
 
-.././drivers/standard_dio.h:
+.././standard_dio.h:
+
+.././spi.h:
+
+.././display.h:

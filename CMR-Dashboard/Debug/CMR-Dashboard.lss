@@ -3,109 +3,661 @@ CMR-Dashboard.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         000000b0  00000000  00000000  00000054  2**1
+  0 .text         00000318  00000000  00000000  00000054  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .comment      00000030  00000000  00000000  00000104  2**0
+  1 .comment      00000030  00000000  00000000  0000036c  2**0
                   CONTENTS, READONLY
-  2 .debug_aranges 00000080  00000000  00000000  00000134  2**0
+  2 .debug_aranges 00000100  00000000  00000000  0000039c  2**0
                   CONTENTS, READONLY, DEBUGGING
-  3 .debug_info   000001df  00000000  00000000  000001b4  2**0
+  3 .debug_info   00000848  00000000  00000000  0000049c  2**0
                   CONTENTS, READONLY, DEBUGGING
-  4 .debug_abbrev 000000ce  00000000  00000000  00000393  2**0
+  4 .debug_abbrev 0000037f  00000000  00000000  00000ce4  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_line   000001a2  00000000  00000000  00000461  2**0
+  5 .debug_line   0000057f  00000000  00000000  00001063  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_frame  000000c8  00000000  00000000  00000604  2**2
+  6 .debug_frame  000001ac  00000000  00000000  000015e4  2**2
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_str    000001eb  00000000  00000000  000006cc  2**0
+  7 .debug_str    0000039d  00000000  00000000  00001790  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_ranges 00000060  00000000  00000000  000008b7  2**0
+  8 .debug_loc    000003c7  00000000  00000000  00001b2d  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_ranges 000000c0  00000000  00000000  00001ef4  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
 
 00000000 <__vectors>:
-   0:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__ctors_end>
-   4:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
-   8:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
-   c:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
-  10:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
-  14:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
-  18:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
-  1c:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
-  20:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
-  24:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
-  28:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
-  2c:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
-  30:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
-  34:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
-  38:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
-  3c:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
-  40:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
-  44:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
-  48:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
-  4c:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
-  50:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
-  54:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
-  58:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
-  5c:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
-  60:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
-  64:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
-  68:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
-  6c:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
-  70:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
-  74:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
-  78:	0c 94 48 00 	jmp	0x90	; 0x90 <__bad_interrupt>
+   0:	0c 94 48 00 	jmp	0x90	; 0x90 <__ctors_end>
+   4:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+   8:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+   c:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  10:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  14:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  18:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  1c:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  20:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  24:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  28:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  2c:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  30:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  34:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  38:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  3c:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  40:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  44:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  48:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  4c:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  50:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  54:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  58:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  5c:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  60:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  64:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  68:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  6c:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  70:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  74:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  78:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  7c:	a1 00       	.word	0x00a1	; ????
+  7e:	b5 00       	.word	0x00b5	; ????
+  80:	a3 00       	.word	0x00a3	; ????
+  82:	a5 00       	.word	0x00a5	; ????
+  84:	a7 00       	.word	0x00a7	; ????
+  86:	a9 00       	.word	0x00a9	; ????
+  88:	ab 00       	.word	0x00ab	; ????
+  8a:	ad 00       	.word	0x00ad	; ????
+  8c:	af 00       	.word	0x00af	; ????
+  8e:	b1 00       	.word	0x00b1	; ????
 
-0000007c <__ctors_end>:
-  7c:	11 24       	eor	r1, r1
-  7e:	1f be       	out	0x3f, r1	; 63
-  80:	cf ef       	ldi	r28, 0xFF	; 255
-  82:	d0 e1       	ldi	r29, 0x10	; 16
-  84:	de bf       	out	0x3e, r29	; 62
-  86:	cd bf       	out	0x3d, r28	; 61
-  88:	0e 94 4a 00 	call	0x94	; 0x94 <main>
-  8c:	0c 94 56 00 	jmp	0xac	; 0xac <_exit>
+00000090 <__ctors_end>:
+  90:	11 24       	eor	r1, r1
+  92:	1f be       	out	0x3f, r1	; 63
+  94:	cf ef       	ldi	r28, 0xFF	; 255
+  96:	d0 e1       	ldi	r29, 0x10	; 16
+  98:	de bf       	out	0x3e, r29	; 62
+  9a:	cd bf       	out	0x3d, r28	; 61
 
-00000090 <__bad_interrupt>:
-  90:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+0000009c <__do_copy_data>:
+  9c:	11 e0       	ldi	r17, 0x01	; 1
+  9e:	a0 e0       	ldi	r26, 0x00	; 0
+  a0:	b1 e0       	ldi	r27, 0x01	; 1
+  a2:	e8 e1       	ldi	r30, 0x18	; 24
+  a4:	f3 e0       	ldi	r31, 0x03	; 3
+  a6:	02 c0       	rjmp	.+4      	; 0xac <__do_copy_data+0x10>
+  a8:	05 90       	lpm	r0, Z+
+  aa:	0d 92       	st	X+, r0
+  ac:	a0 30       	cpi	r26, 0x00	; 0
+  ae:	b1 07       	cpc	r27, r17
+  b0:	d9 f7       	brne	.-10     	; 0xa8 <__do_copy_data+0xc>
+  b2:	0e 94 5f 00 	call	0xbe	; 0xbe <main>
+  b6:	0c 94 8a 01 	jmp	0x314	; 0x314 <_exit>
 
-00000094 <main>:
-#include "drivers/dashboard_dio.h"
-#include "drivers/standard_dio.h"
+000000ba <__bad_interrupt>:
+  ba:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+000000be <main>:
+#include "spi.h"
+#include "display.h"
 
 int main(void)
 {
 	set_DDRs();
-  94:	0e 94 4d 00 	call	0x9a	; 0x9a <set_DDRs>
-  98:	ff cf       	rjmp	.-2      	; 0x98 <main+0x4>
+  be:	0e 94 87 00 	call	0x10e	; 0x10e <set_DDRs>
+	spi_init(0, 1, 0, 3, 0);
+  c2:	00 e0       	ldi	r16, 0x00	; 0
+  c4:	23 e0       	ldi	r18, 0x03	; 3
+  c6:	40 e0       	ldi	r20, 0x00	; 0
+  c8:	61 e0       	ldi	r22, 0x01	; 1
+  ca:	80 e0       	ldi	r24, 0x00	; 0
+  cc:	0e 94 57 01 	call	0x2ae	; 0x2ae <spi_init>
+	
+	while(1) {
+		SPI_select_left_disp(1);
+  d0:	81 e0       	ldi	r24, 0x01	; 1
+  d2:	0e 94 90 00 	call	0x120	; 0x120 <SPI_select_left_disp>
+		
+		// indicator LEDS
+		spi_send(0b00000000);
+  d6:	80 e0       	ldi	r24, 0x00	; 0
+  d8:	0e 94 7e 01 	call	0x2fc	; 0x2fc <spi_send>
+		
+		// hundreds place character
+		writeDigit(6, 0b101);
+  dc:	65 e0       	ldi	r22, 0x05	; 5
+  de:	86 e0       	ldi	r24, 0x06	; 6
+  e0:	0e 94 33 01 	call	0x266	; 0x266 <writeDigit>
+		
+		// tens place character
+		writeDigit(7, 0b011);
+  e4:	63 e0       	ldi	r22, 0x03	; 3
+  e6:	87 e0       	ldi	r24, 0x07	; 7
+  e8:	0e 94 33 01 	call	0x266	; 0x266 <writeDigit>
+		
+		// ones place character
+		writeDigit(9, 0b111);
+  ec:	67 e0       	ldi	r22, 0x07	; 7
+  ee:	89 e0       	ldi	r24, 0x09	; 9
+  f0:	0e 94 33 01 	call	0x266	; 0x266 <writeDigit>
+		
+		SPI_select_left_disp(0);
+  f4:	80 e0       	ldi	r24, 0x00	; 0
+  f6:	0e 94 90 00 	call	0x120	; 0x120 <SPI_select_left_disp>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
 
-0000009a <set_DDRs>:
-#include "drivers/standard_dio.h"
+	__builtin_avr_delay_cycles(__ticks_dc);
+  fa:	2f e3       	ldi	r18, 0x3F	; 63
+  fc:	8d e0       	ldi	r24, 0x0D	; 13
+  fe:	93 e0       	ldi	r25, 0x03	; 3
+ 100:	21 50       	subi	r18, 0x01	; 1
+ 102:	80 40       	sbci	r24, 0x00	; 0
+ 104:	90 40       	sbci	r25, 0x00	; 0
+ 106:	e1 f7       	brne	.-8      	; 0x100 <main+0x42>
+ 108:	00 c0       	rjmp	.+0      	; 0x10a <main+0x4c>
+ 10a:	00 00       	nop
+ 10c:	e1 cf       	rjmp	.-62     	; 0xd0 <main+0x12>
+
+0000010e <set_DDRs>:
+#include "standard_dio.h"
 
 void set_DDRs() {
 	/* data direction registers (input or output)
 	 * these are specific to the dashboard PCB     */
 	DDRB = 0b10111010;
-  9a:	8a eb       	ldi	r24, 0xBA	; 186
-  9c:	84 b9       	out	0x04, r24	; 4
+ 10e:	8a eb       	ldi	r24, 0xBA	; 186
+ 110:	84 b9       	out	0x04, r24	; 4
 	DDRC = 0b01001010;
-  9e:	8a e4       	ldi	r24, 0x4A	; 74
-  a0:	87 b9       	out	0x07, r24	; 7
+ 112:	8a e4       	ldi	r24, 0x4A	; 74
+ 114:	87 b9       	out	0x07, r24	; 7
 	DDRD = 0b00000000;
-  a2:	1a b8       	out	0x0a, r1	; 10
+ 116:	1a b8       	out	0x0a, r1	; 10
 	
 	/* initialize all ports to zero */	
 	PORTB = 0x00;
-  a4:	15 b8       	out	0x05, r1	; 5
+ 118:	15 b8       	out	0x05, r1	; 5
 	PORTC = 0x00;
-  a6:	18 b8       	out	0x08, r1	; 8
+ 11a:	18 b8       	out	0x08, r1	; 8
 	PORTD = 0x00;
-  a8:	1b b8       	out	0x0b, r1	; 11
-  aa:	08 95       	ret
+ 11c:	1b b8       	out	0x0b, r1	; 11
+ 11e:	08 95       	ret
 
-000000ac <_exit>:
-  ac:	f8 94       	cli
+00000120 <SPI_select_left_disp>:
+uint8_t right_disp_btn_pressed() {
+	return is_high(PIND, PIND0);
+}
 
-000000ae <__stop_program>:
-  ae:	ff cf       	rjmp	.-2      	; 0xae <__stop_program>
+void SPI_select_left_disp(uint8_t state) {
+	if (state) {
+ 120:	88 23       	and	r24, r24
+ 122:	21 f0       	breq	.+8      	; 0x12c <SPI_select_left_disp+0xc>
+		cbi(PORTB, PORTB3);	 // left on
+ 124:	2b 98       	cbi	0x05, 3	; 5
+		sbi(PORTB, PORTB4);  // center off
+ 126:	2c 9a       	sbi	0x05, 4	; 5
+		sbi(PORTB, PORTB5);  // right off
+ 128:	2d 9a       	sbi	0x05, 5	; 5
+ 12a:	08 95       	ret
+	} else {
+		sbi(PORTB, PORTB3);  // left off
+ 12c:	2b 9a       	sbi	0x05, 3	; 5
+ 12e:	08 95       	ret
+
+00000130 <getDigit>:
+ e   c
+ \-d-/
+*/
+
+char getDigit(uint8_t digit) {
+  switch (digit) {
+ 130:	90 e0       	ldi	r25, 0x00	; 0
+ 132:	8a 30       	cpi	r24, 0x0A	; 10
+ 134:	91 05       	cpc	r25, r1
+ 136:	b8 f4       	brcc	.+46     	; 0x166 <getDigit+0x36>
+ 138:	fc 01       	movw	r30, r24
+ 13a:	e2 5c       	subi	r30, 0xC2	; 194
+ 13c:	ff 4f       	sbci	r31, 0xFF	; 255
+ 13e:	0c 94 84 01 	jmp	0x308	; 0x308 <__tablejump2__>
+    case 0: return 0b01111110;
+ 142:	8e e7       	ldi	r24, 0x7E	; 126
+ 144:	08 95       	ret
+    case 1: return 0b00110000;
+    case 2: return 0b01101101;
+ 146:	8d e6       	ldi	r24, 0x6D	; 109
+ 148:	08 95       	ret
+    case 3: return 0b01111001;
+ 14a:	89 e7       	ldi	r24, 0x79	; 121
+ 14c:	08 95       	ret
+    case 4: return 0b00110011;
+ 14e:	83 e3       	ldi	r24, 0x33	; 51
+ 150:	08 95       	ret
+    case 5: return 0b01011011;
+ 152:	8b e5       	ldi	r24, 0x5B	; 91
+ 154:	08 95       	ret
+    case 6: return 0b01011111;
+ 156:	8f e5       	ldi	r24, 0x5F	; 95
+ 158:	08 95       	ret
+    case 7: return 0b01110000;
+ 15a:	80 e7       	ldi	r24, 0x70	; 112
+ 15c:	08 95       	ret
+    case 8: return 0b01111111;
+ 15e:	8f e7       	ldi	r24, 0x7F	; 127
+ 160:	08 95       	ret
+    case 9: return 0b01111011;
+ 162:	8b e7       	ldi	r24, 0x7B	; 123
+ 164:	08 95       	ret
+    default: return 0b00000000;
+ 166:	80 e0       	ldi	r24, 0x00	; 0
+ 168:	08 95       	ret
+*/
+
+char getDigit(uint8_t digit) {
+  switch (digit) {
+    case 0: return 0b01111110;
+    case 1: return 0b00110000;
+ 16a:	80 e3       	ldi	r24, 0x30	; 48
+    case 7: return 0b01110000;
+    case 8: return 0b01111111;
+    case 9: return 0b01111011;
+    default: return 0b00000000;
+  }
+}
+ 16c:	08 95       	ret
+
+0000016e <thirdOut>:
+
+char thirdOut(char digit, char rgb) {
+ 16e:	98 2f       	mov	r25, r24
+  char final = 0b0;
+  //         (dp)abcdefg             rgb
+  if ((digit & 0b00000100) && (rgb & 0b010)) final |= 0b1;
+ 170:	82 ff       	sbrs	r24, 2
+ 172:	04 c0       	rjmp	.+8      	; 0x17c <thirdOut+0xe>
+ 174:	61 fb       	bst	r22, 1
+ 176:	88 27       	eor	r24, r24
+ 178:	80 f9       	bld	r24, 0
+ 17a:	01 c0       	rjmp	.+2      	; 0x17e <thirdOut+0x10>
+    default: return 0b00000000;
+  }
+}
+
+char thirdOut(char digit, char rgb) {
+  char final = 0b0;
+ 17c:	80 e0       	ldi	r24, 0x00	; 0
+  //         (dp)abcdefg             rgb
+  if ((digit & 0b00000100) && (rgb & 0b010)) final |= 0b1;
+  if ((digit & 0b00001000) && (rgb & 0b001)) final |= 0b10;
+ 17e:	93 ff       	sbrs	r25, 3
+ 180:	07 c0       	rjmp	.+14     	; 0x190 <thirdOut+0x22>
+ 182:	60 ff       	sbrs	r22, 0
+ 184:	14 c0       	rjmp	.+40     	; 0x1ae <thirdOut+0x40>
+ 186:	82 60       	ori	r24, 0x02	; 2
+ 188:	12 c0       	rjmp	.+36     	; 0x1ae <thirdOut+0x40>
+  if ((digit & 0b00001000) && (rgb & 0b010)) final |= 0b100;
+ 18a:	84 60       	ori	r24, 0x04	; 4
+ 18c:	12 c0       	rjmp	.+36     	; 0x1b2 <thirdOut+0x44>
+  if ((digit & 0b00001000) && (rgb & 0b100)) final |= 0b1000;
+ 18e:	88 60       	ori	r24, 0x08	; 8
+  if ((digit & 0b00010000) && (rgb & 0b001)) final |= 0b10000;
+ 190:	94 ff       	sbrs	r25, 4
+ 192:	05 c0       	rjmp	.+10     	; 0x19e <thirdOut+0x30>
+ 194:	60 ff       	sbrs	r22, 0
+ 196:	10 c0       	rjmp	.+32     	; 0x1b8 <thirdOut+0x4a>
+ 198:	80 61       	ori	r24, 0x10	; 16
+ 19a:	0e c0       	rjmp	.+28     	; 0x1b8 <thirdOut+0x4a>
+  if ((digit & 0b00010000) && (rgb & 0b100)) final |= 0b100000;
+ 19c:	80 62       	ori	r24, 0x20	; 32
+  if ((digit & 0b10000000) && (rgb & 0b010)) final |= 0b1000000;
+ 19e:	99 23       	and	r25, r25
+ 1a0:	84 f4       	brge	.+32     	; 0x1c2 <thirdOut+0x54>
+ 1a2:	61 ff       	sbrs	r22, 1
+ 1a4:	0c c0       	rjmp	.+24     	; 0x1be <thirdOut+0x50>
+ 1a6:	80 64       	ori	r24, 0x40	; 64
+ 1a8:	0a c0       	rjmp	.+20     	; 0x1be <thirdOut+0x50>
+  if ((digit & 0b10000000) && (rgb & 0b100)) final |= 0b10000000;
+ 1aa:	80 68       	ori	r24, 0x80	; 128
+ 1ac:	08 95       	ret
+char thirdOut(char digit, char rgb) {
+  char final = 0b0;
+  //         (dp)abcdefg             rgb
+  if ((digit & 0b00000100) && (rgb & 0b010)) final |= 0b1;
+  if ((digit & 0b00001000) && (rgb & 0b001)) final |= 0b10;
+  if ((digit & 0b00001000) && (rgb & 0b010)) final |= 0b100;
+ 1ae:	61 fd       	sbrc	r22, 1
+ 1b0:	ec cf       	rjmp	.-40     	; 0x18a <thirdOut+0x1c>
+  if ((digit & 0b00001000) && (rgb & 0b100)) final |= 0b1000;
+ 1b2:	62 fd       	sbrc	r22, 2
+ 1b4:	ec cf       	rjmp	.-40     	; 0x18e <thirdOut+0x20>
+ 1b6:	ec cf       	rjmp	.-40     	; 0x190 <thirdOut+0x22>
+  if ((digit & 0b00010000) && (rgb & 0b001)) final |= 0b10000;
+  if ((digit & 0b00010000) && (rgb & 0b100)) final |= 0b100000;
+ 1b8:	62 fd       	sbrc	r22, 2
+ 1ba:	f0 cf       	rjmp	.-32     	; 0x19c <thirdOut+0x2e>
+ 1bc:	f0 cf       	rjmp	.-32     	; 0x19e <thirdOut+0x30>
+  if ((digit & 0b10000000) && (rgb & 0b010)) final |= 0b1000000;
+  if ((digit & 0b10000000) && (rgb & 0b100)) final |= 0b10000000;
+ 1be:	62 fd       	sbrc	r22, 2
+ 1c0:	f4 cf       	rjmp	.-24     	; 0x1aa <thirdOut+0x3c>
+  return final;
+}
+ 1c2:	08 95       	ret
+
+000001c4 <secondOut>:
+
+char secondOut(char digit, char rgb) {
+ 1c4:	98 2f       	mov	r25, r24
+  char final = 0b0;
+  //         (dp)abcdefg             rgb
+  if ((digit & 0b00000100) && (rgb & 0b001)) final |= 0b1;
+ 1c6:	82 ff       	sbrs	r24, 2
+ 1c8:	06 c0       	rjmp	.+12     	; 0x1d6 <secondOut+0x12>
+ 1ca:	86 2f       	mov	r24, r22
+ 1cc:	81 70       	andi	r24, 0x01	; 1
+  if ((digit & 0b00000100) && (rgb & 0b100)) final |= 0b10;
+ 1ce:	62 ff       	sbrs	r22, 2
+ 1d0:	03 c0       	rjmp	.+6      	; 0x1d8 <secondOut+0x14>
+ 1d2:	82 60       	ori	r24, 0x02	; 2
+ 1d4:	01 c0       	rjmp	.+2      	; 0x1d8 <secondOut+0x14>
+  if ((digit & 0b10000000) && (rgb & 0b100)) final |= 0b10000000;
+  return final;
+}
+
+char secondOut(char digit, char rgb) {
+  char final = 0b0;
+ 1d6:	80 e0       	ldi	r24, 0x00	; 0
+  //         (dp)abcdefg             rgb
+  if ((digit & 0b00000100) && (rgb & 0b001)) final |= 0b1;
+  if ((digit & 0b00000100) && (rgb & 0b100)) final |= 0b10;
+  if ((digit & 0b00010000) && (rgb & 0b010)) final |= 0b100;
+ 1d8:	94 ff       	sbrs	r25, 4
+ 1da:	02 c0       	rjmp	.+4      	; 0x1e0 <secondOut+0x1c>
+ 1dc:	61 fd       	sbrc	r22, 1
+ 1de:	84 60       	ori	r24, 0x04	; 4
+  if ((digit & 0b10000000) && (rgb & 0b001)) final |= 0b1000;
+ 1e0:	99 23       	and	r25, r25
+ 1e2:	14 f4       	brge	.+4      	; 0x1e8 <secondOut+0x24>
+ 1e4:	60 fd       	sbrc	r22, 0
+ 1e6:	88 60       	ori	r24, 0x08	; 8
+  if ((digit & 0b00000010) && (rgb & 0b010)) final |= 0b10000;
+ 1e8:	91 ff       	sbrs	r25, 1
+ 1ea:	05 c0       	rjmp	.+10     	; 0x1f6 <secondOut+0x32>
+ 1ec:	61 ff       	sbrs	r22, 1
+ 1ee:	0d c0       	rjmp	.+26     	; 0x20a <secondOut+0x46>
+ 1f0:	80 61       	ori	r24, 0x10	; 16
+ 1f2:	0b c0       	rjmp	.+22     	; 0x20a <secondOut+0x46>
+  if ((digit & 0b00000010) && (rgb & 0b100)) final |= 0b100000;
+ 1f4:	80 62       	ori	r24, 0x20	; 32
+  if ((digit & 0b00000001) && (rgb & 0b010)) final |= 0b1000000;
+ 1f6:	90 ff       	sbrs	r25, 0
+ 1f8:	02 c0       	rjmp	.+4      	; 0x1fe <secondOut+0x3a>
+ 1fa:	61 fd       	sbrc	r22, 1
+ 1fc:	80 64       	ori	r24, 0x40	; 64
+  if ((digit & 0b00100000) && (rgb & 0b010)) final |= 0b10000000;
+ 1fe:	95 ff       	sbrs	r25, 5
+ 200:	07 c0       	rjmp	.+14     	; 0x210 <secondOut+0x4c>
+ 202:	61 ff       	sbrs	r22, 1
+ 204:	05 c0       	rjmp	.+10     	; 0x210 <secondOut+0x4c>
+ 206:	80 68       	ori	r24, 0x80	; 128
+ 208:	08 95       	ret
+  if ((digit & 0b00000100) && (rgb & 0b001)) final |= 0b1;
+  if ((digit & 0b00000100) && (rgb & 0b100)) final |= 0b10;
+  if ((digit & 0b00010000) && (rgb & 0b010)) final |= 0b100;
+  if ((digit & 0b10000000) && (rgb & 0b001)) final |= 0b1000;
+  if ((digit & 0b00000010) && (rgb & 0b010)) final |= 0b10000;
+  if ((digit & 0b00000010) && (rgb & 0b100)) final |= 0b100000;
+ 20a:	62 fd       	sbrc	r22, 2
+ 20c:	f3 cf       	rjmp	.-26     	; 0x1f4 <secondOut+0x30>
+ 20e:	f3 cf       	rjmp	.-26     	; 0x1f6 <secondOut+0x32>
+  if ((digit & 0b00000001) && (rgb & 0b010)) final |= 0b1000000;
+  if ((digit & 0b00100000) && (rgb & 0b010)) final |= 0b10000000;
+  return final;
+}
+ 210:	08 95       	ret
+
+00000212 <firstOut>:
+
+char firstOut(char digit, char rgb) {
+ 212:	98 2f       	mov	r25, r24
+  char final = 0b0;
+  //         (dp)abcdefg             rgb
+  if ((digit & 0b00000010) && (rgb & 0b001)) final |= 0b1;
+ 214:	81 ff       	sbrs	r24, 1
+ 216:	03 c0       	rjmp	.+6      	; 0x21e <firstOut+0xc>
+ 218:	86 2f       	mov	r24, r22
+ 21a:	81 70       	andi	r24, 0x01	; 1
+ 21c:	01 c0       	rjmp	.+2      	; 0x220 <firstOut+0xe>
+  if ((digit & 0b00100000) && (rgb & 0b010)) final |= 0b10000000;
+  return final;
+}
+
+char firstOut(char digit, char rgb) {
+  char final = 0b0;
+ 21e:	80 e0       	ldi	r24, 0x00	; 0
+  //         (dp)abcdefg             rgb
+  if ((digit & 0b00000010) && (rgb & 0b001)) final |= 0b1;
+  if ((digit & 0b00000001) && (rgb & 0b001)) final |= 0b10;
+ 220:	90 ff       	sbrs	r25, 0
+ 222:	05 c0       	rjmp	.+10     	; 0x22e <firstOut+0x1c>
+ 224:	60 ff       	sbrs	r22, 0
+ 226:	14 c0       	rjmp	.+40     	; 0x250 <firstOut+0x3e>
+ 228:	82 60       	ori	r24, 0x02	; 2
+ 22a:	12 c0       	rjmp	.+36     	; 0x250 <firstOut+0x3e>
+  if ((digit & 0b00000001) && (rgb & 0b100)) final |= 0b100;
+ 22c:	84 60       	ori	r24, 0x04	; 4
+  if ((digit & 0b01000000) && (rgb & 0b001)) final |= 0b1000;
+ 22e:	96 ff       	sbrs	r25, 6
+ 230:	07 c0       	rjmp	.+14     	; 0x240 <firstOut+0x2e>
+ 232:	60 ff       	sbrs	r22, 0
+ 234:	10 c0       	rjmp	.+32     	; 0x256 <firstOut+0x44>
+ 236:	88 60       	ori	r24, 0x08	; 8
+ 238:	0e c0       	rjmp	.+28     	; 0x256 <firstOut+0x44>
+  if ((digit & 0b01000000) && (rgb & 0b010)) final |= 0b10000;
+ 23a:	80 61       	ori	r24, 0x10	; 16
+ 23c:	0e c0       	rjmp	.+28     	; 0x25a <firstOut+0x48>
+  if ((digit & 0b01000000) && (rgb & 0b100)) final |= 0b100000;
+ 23e:	80 62       	ori	r24, 0x20	; 32
+  if ((digit & 0b00100000) && (rgb & 0b001)) final |= 0b1000000;
+ 240:	95 ff       	sbrs	r25, 5
+ 242:	10 c0       	rjmp	.+32     	; 0x264 <firstOut+0x52>
+ 244:	60 ff       	sbrs	r22, 0
+ 246:	0c c0       	rjmp	.+24     	; 0x260 <firstOut+0x4e>
+ 248:	80 64       	ori	r24, 0x40	; 64
+ 24a:	0a c0       	rjmp	.+20     	; 0x260 <firstOut+0x4e>
+  if ((digit & 0b00100000) && (rgb & 0b100)) final |= 0b10000000;
+ 24c:	80 68       	ori	r24, 0x80	; 128
+ 24e:	08 95       	ret
+char firstOut(char digit, char rgb) {
+  char final = 0b0;
+  //         (dp)abcdefg             rgb
+  if ((digit & 0b00000010) && (rgb & 0b001)) final |= 0b1;
+  if ((digit & 0b00000001) && (rgb & 0b001)) final |= 0b10;
+  if ((digit & 0b00000001) && (rgb & 0b100)) final |= 0b100;
+ 250:	62 fd       	sbrc	r22, 2
+ 252:	ec cf       	rjmp	.-40     	; 0x22c <firstOut+0x1a>
+ 254:	ec cf       	rjmp	.-40     	; 0x22e <firstOut+0x1c>
+  if ((digit & 0b01000000) && (rgb & 0b001)) final |= 0b1000;
+  if ((digit & 0b01000000) && (rgb & 0b010)) final |= 0b10000;
+ 256:	61 fd       	sbrc	r22, 1
+ 258:	f0 cf       	rjmp	.-32     	; 0x23a <firstOut+0x28>
+  if ((digit & 0b01000000) && (rgb & 0b100)) final |= 0b100000;
+ 25a:	62 fd       	sbrc	r22, 2
+ 25c:	f0 cf       	rjmp	.-32     	; 0x23e <firstOut+0x2c>
+ 25e:	f0 cf       	rjmp	.-32     	; 0x240 <firstOut+0x2e>
+  if ((digit & 0b00100000) && (rgb & 0b001)) final |= 0b1000000;
+  if ((digit & 0b00100000) && (rgb & 0b100)) final |= 0b10000000;
+ 260:	62 fd       	sbrc	r22, 2
+ 262:	f4 cf       	rjmp	.-24     	; 0x24c <firstOut+0x3a>
+  return final;
+}
+ 264:	08 95       	ret
+
+00000266 <writeDigit>:
+
+
+void writeDigit(char dig, char rgb) {
+ 266:	0f 93       	push	r16
+ 268:	1f 93       	push	r17
+ 26a:	cf 93       	push	r28
+ 26c:	df 93       	push	r29
+ 26e:	d6 2f       	mov	r29, r22
+  char digit = getDigit(dig);
+ 270:	0e 94 98 00 	call	0x130	; 0x130 <getDigit>
+ 274:	c8 2f       	mov	r28, r24
+  char first = firstOut(digit, rgb);
+ 276:	6d 2f       	mov	r22, r29
+ 278:	0e 94 09 01 	call	0x212	; 0x212 <firstOut>
+ 27c:	08 2f       	mov	r16, r24
+  char second = secondOut(digit, rgb);
+ 27e:	6d 2f       	mov	r22, r29
+ 280:	8c 2f       	mov	r24, r28
+ 282:	0e 94 e2 00 	call	0x1c4	; 0x1c4 <secondOut>
+ 286:	18 2f       	mov	r17, r24
+  char third = thirdOut(digit, rgb);
+ 288:	6d 2f       	mov	r22, r29
+ 28a:	8c 2f       	mov	r24, r28
+ 28c:	0e 94 b7 00 	call	0x16e	; 0x16e <thirdOut>
+ 290:	c8 2f       	mov	r28, r24
+  //shift first
+  spi_send(first);
+ 292:	80 2f       	mov	r24, r16
+ 294:	0e 94 7e 01 	call	0x2fc	; 0x2fc <spi_send>
+  //shift second
+  spi_send(second);
+ 298:	81 2f       	mov	r24, r17
+ 29a:	0e 94 7e 01 	call	0x2fc	; 0x2fc <spi_send>
+  //shift third
+  spi_send(third);
+ 29e:	8c 2f       	mov	r24, r28
+ 2a0:	0e 94 7e 01 	call	0x2fc	; 0x2fc <spi_send>
+}
+ 2a4:	df 91       	pop	r29
+ 2a6:	cf 91       	pop	r28
+ 2a8:	1f 91       	pop	r17
+ 2aa:	0f 91       	pop	r16
+ 2ac:	08 95       	ret
+
+000002ae <spi_init>:
+//  EXAMPLE: spi_init(0, 1, 0, 3, 0)
+void spi_init(uint8_t lsbfirst,
+              uint8_t master,
+              uint8_t mode,
+              uint8_t clkrate,
+              uint8_t dblclk){
+ 2ae:	0f 93       	push	r16
+  //set outputs
+  __SPI_DDR |= ((1<<__SPI_MOSI) | (1<<__SPI_SCK));
+ 2b0:	94 b1       	in	r25, 0x04	; 4
+ 2b2:	92 68       	ori	r25, 0x82	; 130
+ 2b4:	94 b9       	out	0x04, r25	; 4
+  //set inputs
+  __SPI_DDR &= ~(1<<__SPI_MISO);
+ 2b6:	20 98       	cbi	0x04, 0	; 4
+  __SPI_PORT |= (1<<__SPI_MISO); //turn on pull-up resistor
+ 2b8:	28 9a       	sbi	0x05, 0	; 5
+  //set SPI control register
+  SPCR = (
+ 2ba:	23 70       	andi	r18, 0x03	; 3
+ 2bc:	20 64       	ori	r18, 0x40	; 64
+           (1<<SPE) | //enable SPI
+           ((lsbfirst & __SPI_LSBFIRST_MASK)<<DORD) | //set msb/lsb ordering
+           ((master & __SPI_MASTER_MASK)<<MSTR) | //set master/slave mode
+           ((mode & __SPI_MODE_MASK)<<CPHA) | //set mode
+ 2be:	43 70       	andi	r20, 0x03	; 3
+ 2c0:	44 0f       	add	r20, r20
+ 2c2:	44 0f       	add	r20, r20
+  __SPI_DDR |= ((1<<__SPI_MOSI) | (1<<__SPI_SCK));
+  //set inputs
+  __SPI_DDR &= ~(1<<__SPI_MISO);
+  __SPI_PORT |= (1<<__SPI_MISO); //turn on pull-up resistor
+  //set SPI control register
+  SPCR = (
+ 2c4:	24 2b       	or	r18, r20
+           (1<<SPE) | //enable SPI
+           ((lsbfirst & __SPI_LSBFIRST_MASK)<<DORD) | //set msb/lsb ordering
+           ((master & __SPI_MASTER_MASK)<<MSTR) | //set master/slave mode
+ 2c6:	a6 2f       	mov	r26, r22
+ 2c8:	a1 70       	andi	r26, 0x01	; 1
+ 2ca:	b0 e0       	ldi	r27, 0x00	; 0
+ 2cc:	a2 95       	swap	r26
+ 2ce:	b2 95       	swap	r27
+ 2d0:	b0 7f       	andi	r27, 0xF0	; 240
+ 2d2:	ba 27       	eor	r27, r26
+ 2d4:	a0 7f       	andi	r26, 0xF0	; 240
+ 2d6:	ba 27       	eor	r27, r26
+  __SPI_DDR |= ((1<<__SPI_MOSI) | (1<<__SPI_SCK));
+  //set inputs
+  __SPI_DDR &= ~(1<<__SPI_MISO);
+  __SPI_PORT |= (1<<__SPI_MISO); //turn on pull-up resistor
+  //set SPI control register
+  SPCR = (
+ 2d8:	a2 2b       	or	r26, r18
+           (1<<SPE) | //enable SPI
+           ((lsbfirst & __SPI_LSBFIRST_MASK)<<DORD) | //set msb/lsb ordering
+ 2da:	e8 2f       	mov	r30, r24
+ 2dc:	e1 70       	andi	r30, 0x01	; 1
+ 2de:	f0 e0       	ldi	r31, 0x00	; 0
+ 2e0:	ee 0f       	add	r30, r30
+ 2e2:	ff 1f       	adc	r31, r31
+ 2e4:	e2 95       	swap	r30
+ 2e6:	f2 95       	swap	r31
+ 2e8:	f0 7f       	andi	r31, 0xF0	; 240
+ 2ea:	fe 27       	eor	r31, r30
+ 2ec:	e0 7f       	andi	r30, 0xF0	; 240
+ 2ee:	fe 27       	eor	r31, r30
+  __SPI_DDR |= ((1<<__SPI_MOSI) | (1<<__SPI_SCK));
+  //set inputs
+  __SPI_DDR &= ~(1<<__SPI_MISO);
+  __SPI_PORT |= (1<<__SPI_MISO); //turn on pull-up resistor
+  //set SPI control register
+  SPCR = (
+ 2f0:	ae 2b       	or	r26, r30
+ 2f2:	ac bd       	out	0x2c, r26	; 44
+           ((master & __SPI_MASTER_MASK)<<MSTR) | //set master/slave mode
+           ((mode & __SPI_MODE_MASK)<<CPHA) | //set mode
+           (clkrate & __SPI_SPEED_MASK<<SPR0) //set speed
+         );
+  //set double speed bit
+  SPSR = ((dblclk&__SPI_DBLCLK_MASK)<<SPI2X);
+ 2f4:	01 70       	andi	r16, 0x01	; 1
+ 2f6:	0d bd       	out	0x2d, r16	; 45
+}
+ 2f8:	0f 91       	pop	r16
+ 2fa:	08 95       	ret
+
+000002fc <spi_send>:
+//  returns uint8_t - the data received during sending
+uint8_t spi_send(uint8_t value){
+  uint8_t result;
+
+  //shift the first byte of the value
+  SPDR = value;
+ 2fc:	8e bd       	out	0x2e, r24	; 46
+  //wait for the SPI bus to finish
+  while(!(SPSR & (1<<SPIF)));
+ 2fe:	0d b4       	in	r0, 0x2d	; 45
+ 300:	07 fe       	sbrs	r0, 7
+ 302:	fd cf       	rjmp	.-6      	; 0x2fe <spi_send+0x2>
+  //get the received data
+  result = SPDR;
+ 304:	8e b5       	in	r24, 0x2e	; 46
+
+  return result;
+}
+ 306:	08 95       	ret
+
+00000308 <__tablejump2__>:
+ 308:	ee 0f       	add	r30, r30
+ 30a:	ff 1f       	adc	r31, r31
+
+0000030c <__tablejump__>:
+ 30c:	05 90       	lpm	r0, Z+
+ 30e:	f4 91       	lpm	r31, Z
+ 310:	e0 2d       	mov	r30, r0
+ 312:	09 94       	ijmp
+
+00000314 <_exit>:
+ 314:	f8 94       	cli
+
+00000316 <__stop_program>:
+ 316:	ff cf       	rjmp	.-2      	; 0x316 <__stop_program>

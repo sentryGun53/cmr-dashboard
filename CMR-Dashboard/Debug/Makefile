@@ -38,7 +38,9 @@ SUBDIRS :=
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
 ../CMR-Dashboard.c \
-../dashboard_dio.c
+../dashboard_dio.c \
+../display.c \
+../spi.c
 
 
 PREPROCESSING_SRCS += 
@@ -49,19 +51,27 @@ ASM_SRCS +=
 
 OBJS +=  \
 CMR-Dashboard.o \
-dashboard_dio.o
+dashboard_dio.o \
+display.o \
+spi.o
 
 OBJS_AS_ARGS +=  \
 CMR-Dashboard.o \
-dashboard_dio.o
+dashboard_dio.o \
+display.o \
+spi.o
 
 C_DEPS +=  \
 CMR-Dashboard.d \
-dashboard_dio.d
+dashboard_dio.d \
+display.d \
+spi.d
 
 C_DEPS_AS_ARGS +=  \
 CMR-Dashboard.d \
-dashboard_dio.d
+dashboard_dio.d \
+display.d \
+spi.d
 
 OUTPUT_FILE_PATH +=CMR-Dashboard.elf
 
@@ -77,6 +87,10 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
+
+
 
 
 
@@ -114,7 +128,7 @@ all: $(OUTPUT_FILE_PATH) $(ADDITIONAL_DEPENDENCIES)
 $(OUTPUT_FILE_PATH): $(OBJS) $(USER_OBJS) $(OUTPUT_FILE_DEP) $(LIB_DEP) $(LINKER_SCRIPT_DEP)
 	@echo Building target: $@
 	@echo Invoking: AVR/GNU Linker : 4.8.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.1061\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE) -o$(OUTPUT_FILE_PATH_AS_ARGS) $(OBJS_AS_ARGS) $(USER_OBJS) $(LIBS) -Wl,-Map="CMR-Dashboard.map" -Wl,--start-group -Wl,-lm  -Wl,--end-group -Wl,--gc-sections -mmcu=atmega64c1  
+	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.1061\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE) -o$(OUTPUT_FILE_PATH_AS_ARGS) $(OBJS_AS_ARGS) $(USER_OBJS) $(LIBS) -Wl,-Map="CMR-Dashboard.map" -Wl,--start-group -Wl,-lm  -Wl,--end-group -Wl,-L"C:\Users\Robert\Documents\Atmel Studio\6.2\cmr-dashboard\CMR-Dashboard\drivers"  -Wl,--gc-sections -mmcu=atmega64c1  
 	@echo Finished building target: $@
 	"C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.1061\avr8-gnu-toolchain\bin\avr-objcopy.exe" -O ihex -R .eeprom -R .fuse -R .lock -R .signature -R .user_signatures  "CMR-Dashboard.elf" "CMR-Dashboard.hex"
 	"C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.1061\avr8-gnu-toolchain\bin\avr-objcopy.exe" -j .eeprom  --set-section-flags=.eeprom=alloc,load --change-section-lma .eeprom=0  --no-change-warnings -O ihex "CMR-Dashboard.elf" "CMR-Dashboard.eep" || exit 0

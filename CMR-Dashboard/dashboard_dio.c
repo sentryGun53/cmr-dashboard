@@ -6,7 +6,7 @@
  */ 
 
 #include <avr/io.h>
-#include "drivers/standard_dio.h"
+#include "standard_dio.h"
 
 void set_DDRs() {
 	/* data direction registers (input or output)
@@ -21,34 +21,64 @@ void set_DDRs() {
 	PORTD = 0x00;
 }
 
-int LVE_btn_pressed() {
+uint8_t LVE_btn_pressed() {
 	return is_high(PIND, PIND7);
 }
 
-int HVE_btn_pressed() {
+uint8_t HVE_btn_pressed() {
 	return is_high(PINC, PINC5);
 }
 
-int RTD_btn_pressed() {
+uint8_t RTD_btn_pressed() {
 	return is_high(PINC, PINC0);
 }
 
-int DAQ_btn_pressed() {
+uint8_t DAQ_btn_pressed() {
 	return is_high(PIND, PIND1);
 }
 
-int mode_btn_pressed() {
+uint8_t mode_btn_pressed() {
 	return is_high(PINB, PINB0);
 }
 
-int left_disp_btn_pressed() {
+uint8_t left_disp_btn_pressed() {
 	return is_high(PINC, PINC7);
 }
 
-int center_disp_btn_pressed() {
+uint8_t center_disp_btn_pressed() {
 	return is_high(PINB, PINB6);
 }
 
-int right_disp_btn_pressed() {
+uint8_t right_disp_btn_pressed() {
 	return is_high(PIND, PIND0);
+}
+
+void SPI_select_left_disp(uint8_t state) {
+	if (state) {
+		cbi(PORTB, PORTB3);	 // left on
+		sbi(PORTB, PORTB4);  // center off
+		sbi(PORTB, PORTB5);  // right off
+	} else {
+		sbi(PORTB, PORTB3);  // left off
+	}
+}
+
+void SPI_select_center_disp(uint8_t state) {
+	if (state) {
+		sbi(PORTB, PORTB3);	 // left off
+		cbi(PORTB, PORTB4);  // center on
+		sbi(PORTB, PORTB5);  // right off
+	} else {
+		sbi(PORTB, PORTB4);  // center off
+	}
+}
+
+void SPI_select_right_disp(uint8_t state) {
+	if (state) {
+		sbi(PORTB, PORTB3);	 // left off
+		sbi(PORTB, PORTB4);  // center off
+		cbi(PORTB, PORTB5);  // right on
+	} else {
+		sbi(PORTB, PORTB5);  // right off
+	}
 }

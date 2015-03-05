@@ -6,3 +6,7 @@ CMR-Dashboard.c
 
 dashboard_dio.c
 
+display.c
+
+spi.c
+
