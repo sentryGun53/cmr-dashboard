@@ -55,30 +55,30 @@ uint8_t right_disp_btn_pressed() {
 
 void SPI_select_left_disp(uint8_t state) {
 	if (state) {
-		cbi(PORTB, PORTB3);	 // left on
-		sbi(PORTB, PORTB4);  // center off
-		sbi(PORTB, PORTB5);  // right off
+		sbi(PORTB, PORTB3);	 // left on
+		cbi(PORTB, PORTB4);  // center off
+		cbi(PORTB, PORTB5);  // right off
 	} else {
-		sbi(PORTB, PORTB3);  // left off
+		cbi(PORTB, PORTB3);  // left off
 	}
 }
 
 void SPI_select_center_disp(uint8_t state) {
 	if (state) {
-		sbi(PORTB, PORTB3);	 // left off
-		cbi(PORTB, PORTB4);  // center on
-		sbi(PORTB, PORTB5);  // right off
+		cbi(PORTB, PORTB3);	 // left off
+		sbi(PORTB, PORTB4);  // center on
+		cbi(PORTB, PORTB5);  // right off
 	} else {
-		sbi(PORTB, PORTB4);  // center off
+		cbi(PORTB, PORTB4);  // center off
 	}
 }
 
 void SPI_select_right_disp(uint8_t state) {
 	if (state) {
-		sbi(PORTB, PORTB3);	 // left off
-		sbi(PORTB, PORTB4);  // center off
-		cbi(PORTB, PORTB5);  // right on
+		cbi(PORTB, PORTB3);	 // left off
+		cbi(PORTB, PORTB4);  // center off
+		sbi(PORTB, PORTB5);  // right on
 	} else {
-		sbi(PORTB, PORTB5);  // right off
+		cbi(PORTB, PORTB5);  // right off
 	}
 }

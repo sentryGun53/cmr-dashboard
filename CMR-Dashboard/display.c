@@ -207,7 +207,10 @@ void write_value(short val, char rgb) {
  * which_display:  1 = left, 2 = center, 3 = right
  * val:			   a numerical value to display (0 to 999)
  * rgb:			   what color to use (eg. 0b100 is red, 0b101 is purple)
- * LEDs:		   which indicator LEDs to turn on    */
+ * LEDs:		   which indicator LEDs to turn on    
+ *
+ * Usage: display_int(1,123,0b001,0b0010);
+ */
 void display_int(char which_display, short val, char rgb, char LEDs) {
 	switch(which_display) {
 		case 1:
@@ -235,24 +238,27 @@ void display_int(char which_display, short val, char rgb, char LEDs) {
 	}
 }
 
-/* Display a restricted set of strings on a display.
+/* Display three characters on a display.
  * which_display:  1 = left, 2 = center, 3 = right
  * string:		   3 characters to display. Upper and lower case characters accepted, except w, W, m, M.
- *											Digits 0-9, space, dash, and underscore are also accepted.
+ *											Digits 0-9, space, dash, and underscore are also accepted. 
  * rgb:			   what color to use (eg. 0b100 is red, 0b101 is purple)
- * LEDs:		   which indicator LEDs to turn on    */
+ * LEDs:		   which indicator LEDs to turn on  (eg. 0b1010 turns on the 1st and 4th leds, (top is 1st)
+ *
+ * Usage: display_str(1,"hot",0b100,0b1000);
+ */
 
 void display_str(char which_display, char string[3], char rgb, char LEDs) {
 	switch(which_display) {
 		case 1:
-		SPI_select_left_disp(1);
-		break;
+			SPI_select_left_disp(1);
+			break;
 		case 2:
-		SPI_select_center_disp(1);
-		break;
+			SPI_select_center_disp(1);
+			break;
 		case 3:
-		SPI_select_right_disp(1);
-		break;
+			SPI_select_right_disp(1);
+			break;
 	}
 	spi_send(LEDs);
 	if (string[0] == '\n') {
@@ -276,13 +282,13 @@ void display_str(char which_display, char string[3], char rgb, char LEDs) {
 	
 	switch(which_display) {
 		case 1:
-		SPI_select_left_disp(0);
-		break;
+			SPI_select_left_disp(0);
+			break;
 		case 2:
-		SPI_select_center_disp(0);
-		break;
+			SPI_select_center_disp(0);
+			break;
 		case 3:
-		SPI_select_right_disp(0);
-		break;
+			SPI_select_right_disp(0);
+			break;
 	}
 }
