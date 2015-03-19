@@ -1,8 +1,12 @@
 /*
  * CMR_Dashboard.c
  *
- * Created: 3/4/2015 9:35:31 PM
+ * Created: 3/18/2015 7:12:39 PM
  *  Author: Robert
+ *
+ *  To Do:
+ *    Why do all displays receive things even when their SS pin is not selected?
+ *    
  */ 
 
 #define F_CPU 1000000UL
@@ -20,21 +24,21 @@ int main(void)
 	spi_init(0, 1, 0, 3, 0);
 	
 	while(1) {
-		SPI_select_left_disp(1);
-		
-		// indicator LEDS
-		spi_send(0b00000000);
-		
-		// hundreds place character
-		writeDigit(6, 0b101);
-		
-		// tens place character
-		writeDigit(7, 0b011);
-		
-		// ones place character
-		writeDigit(9, 0b111);
-		
-		SPI_select_left_disp(0);
-		_delay_ms(1000);
+		display_int(1,123,0b001,0b0010);
+		_delay_ms(2000);
+		display_str(1,"Err",0b100,0b1000);
+		_delay_ms(2000);
+		display_str(1,"ACC",0b010,0b1000);
+		_delay_ms(2000);
+		display_str(1,"End",0b010,0b1000);
+		_delay_ms(2000);
+		display_str(1,"hot",0b100,0b1000);
+		_delay_ms(2000);
+		display_str(1,"col",0b001,0b1000);
+		_delay_ms(2000);
+		display_str(1,"rtd",0b111,0b1000);
+		_delay_ms(2000);
+		display_str(1,"bob",0b110,0b1000);
+		_delay_ms(2000);
 	}
 }
