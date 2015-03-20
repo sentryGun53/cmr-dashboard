@@ -251,7 +251,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0x376
+.text           0x00000000      0x458
  *(.vectors)
  .vectors       0x00000000       0x7c c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm64c1.o
                 0x00000000                __vector_default
@@ -340,49 +340,49 @@ END GROUP
                 0x000000aa                . = ALIGN (0x2)
  *(.text.*)
  .text.startup.main
-                0x000000aa       0x52 CMR-Dashboard.o
+                0x000000aa      0x134 CMR-Dashboard.o
                 0x000000aa                main
  .text.set_DDRs
-                0x000000fc       0x18 dashboard_dio.o
-                0x000000fc                set_DDRs
+                0x000001de       0x18 dashboard_dio.o
+                0x000001de                set_DDRs
  .text.SPI_select_left_disp
-                0x00000114       0x10 dashboard_dio.o
-                0x00000114                SPI_select_left_disp
+                0x000001f6       0x10 dashboard_dio.o
+                0x000001f6                SPI_select_left_disp
  .text.SPI_select_center_disp
-                0x00000124       0x10 dashboard_dio.o
-                0x00000124                SPI_select_center_disp
+                0x00000206       0x10 dashboard_dio.o
+                0x00000206                SPI_select_center_disp
  .text.SPI_select_right_disp
-                0x00000134       0x10 dashboard_dio.o
-                0x00000134                SPI_select_right_disp
+                0x00000216       0x10 dashboard_dio.o
+                0x00000216                SPI_select_right_disp
  .text.getCharBitPattern
-                0x00000144       0x16 display.o
-                0x00000144                getCharBitPattern
+                0x00000226       0x16 display.o
+                0x00000226                getCharBitPattern
  .text.thirdOut
-                0x0000015a       0x3e display.o
-                0x0000015a                thirdOut
+                0x0000023c       0x3e display.o
+                0x0000023c                thirdOut
  .text.secondOut
-                0x00000198       0x46 display.o
-                0x00000198                secondOut
+                0x0000027a       0x46 display.o
+                0x0000027a                secondOut
  .text.firstOut
-                0x000001de       0x3c display.o
-                0x000001de                firstOut
+                0x000002c0       0x3c display.o
+                0x000002c0                firstOut
  .text.writeCharacter
-                0x0000021a       0x46 display.o
-                0x0000021a                writeCharacter
+                0x000002fc       0x46 display.o
+                0x000002fc                writeCharacter
  .text.display_str
-                0x00000260       0xbc display.o
-                0x00000260                display_str
+                0x00000342       0xbc display.o
+                0x00000342                display_str
  .text.spi_init
-                0x0000031c       0x4a spi.o
-                0x0000031c                spi_init
+                0x000003fe       0x4a spi.o
+                0x000003fe                spi_init
  .text.spi_send
-                0x00000366        0xc spi.o
-                0x00000366                spi_send
-                0x00000372                . = ALIGN (0x2)
+                0x00000448        0xc spi.o
+                0x00000448                spi_send
+                0x00000454                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000372        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
-                0x00000372                _exit
-                0x00000372                exit
+ .fini9         0x00000454        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
+                0x00000454                _exit
+                0x00000454                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -401,41 +401,41 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000372        0x4 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
+ .fini0         0x00000454        0x4 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x00000376                _etext = .
+                0x00000458                _etext = .
 
-.data           0x00800100       0x60 load address 0x00000376
+.data           0x00800100       0x80 load address 0x00000458
                 0x00800100                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
  *(.rodata)
  *(.rodata*)
  .rodata.str1.1
-                0x00800100        0x4 CMR-Dashboard.o
+                0x00800100       0x24 CMR-Dashboard.o
  .rodata.CSWTCH.5
-                0x00800104       0x5b display.o
+                0x00800124       0x5b display.o
  *(.gnu.linkonce.d*)
-                0x00800160                . = ALIGN (0x2)
- *fill*         0x0080015f        0x1 
-                0x00800160                _edata = .
-                0x00800160                PROVIDE (__data_end, .)
+                0x00800180                . = ALIGN (0x2)
+ *fill*         0x0080017f        0x1 
+                0x00800180                _edata = .
+                0x00800180                PROVIDE (__data_end, .)
 
-.bss            0x00800160        0x0
-                0x00800160                PROVIDE (__bss_start, .)
+.bss            0x00800180        0x0
+                0x00800180                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
  *(COMMON)
-                0x00800160                PROVIDE (__bss_end, .)
-                0x00000376                __data_load_start = LOADADDR (.data)
-                0x000003d6                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00800180                PROVIDE (__bss_end, .)
+                0x00000458                __data_load_start = LOADADDR (.data)
+                0x000004d8                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x00800160        0x0
-                0x00800160                PROVIDE (__noinit_start, .)
+.noinit         0x00800180        0x0
+                0x00800180                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x00800160                PROVIDE (__noinit_end, .)
-                0x00800160                _end = .
-                0x00800160                PROVIDE (__heap_start, .)
+                0x00800180                PROVIDE (__noinit_end, .)
+                0x00800180                _end = .
+                0x00800180                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
  *(.eeprom*)
