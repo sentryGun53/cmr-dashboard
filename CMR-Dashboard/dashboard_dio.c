@@ -13,12 +13,16 @@ void set_DDRs() {
 	 * these are specific to the dashboard PCB     */
 	DDRB = 0b10111010;
 	DDRC = 0b01001010;
-	DDRD = 0b00000000;
+	DDRD = 0b00011000;
 	
-	/* initialize all ports to zero */	
+	/* turn off all pull-ups */	
 	PORTB = 0x00;
 	PORTC = 0x00;
 	PORTD = 0x00;
+	
+	/* turn on pull-ups where needed */
+	sbi(PORTD,PORTD3); // SS pin - this is important! if this is left floating, chip randomly freezes in slave SPI mode. ick.
+	sbi(PORTD,PORTD4); // SCK pin
 }
 
 uint8_t LVE_btn_pressed() {
